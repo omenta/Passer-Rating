@@ -1,23 +1,15 @@
-comp = 0
-att = 1 # Attempted passes can't be zero.
-yds = 0
-td = 0
-ints = 0 
-
-
-#passer_rating = (((a + b + c + c) / 6) * 100)
-
 def intro():
-	print("Passer rating, or QBR(Quarterback Rating) is a measure of the efficiency of passers, primarily quarterbacks, in gridiron football.")
+	print("Passer Rating\n")
+	print("Passer rating, or QBR(Quarterback Rating) is a measure of the efficiency of passers, primarily quarterbacks, in gridiron football.\n")
 	
-def inputs():
-	att = input("Passes attempted: ")
-	comp = input("Completed passes: ")
-	yds = input("Total yards: ")
-	td = input("Touchdowns: ")
-	ints = input("Interceptions: ")
-
+	
 def rating():
+	
+	att = int(input("Passes attempted: "))
+	comp = int(input("Completed passes: "))
+	yds = int(input("Total yards: "))
+	td = int(input("Touchdowns: "))
+	ints = int(input("Interceptions: "))
 	
 	a = ((comp / att) - 0.3) * 5.0
 	b = ((yds / att) - 3.0) * 0.25
@@ -25,13 +17,18 @@ def rating():
 	d = 2.375 - ((ints / att) * 25.0)
 	
 	passer_rating = (((a + b + c + d) / 6.0) * 100.0)
+	if passer_rating > 153.5:
+		passer_rating = 153.5
+	elif passer_rating < 0:
+		passer_rating = 0
+	else:
+		passer_rating = passer_rating
 	
-	print("Passer Rating is ", passer_rating)
-	
+	print("Passer Rating is ", round(passer_rating, 1))
+		
 def main():
 	intro()
-	inputs()
 	rating()
-	
+		
 if __name__ == '__main__':
-    main()
+	main()
