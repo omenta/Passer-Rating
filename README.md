@@ -24,3 +24,7 @@ A few things to note:
       Each of those variables is scaled to a value 
       between 0 and 2.375, with 1.0 being statistically 
       average (based on current league data.
+
+     * I haven't implemented any input validation 
+       in the code, so make sure you have a way to
+       verify the validity of input values.
